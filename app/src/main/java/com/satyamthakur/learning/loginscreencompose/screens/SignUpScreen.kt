@@ -22,25 +22,16 @@ fun SignUpScreen() {
         modifier = Modifier.fillMaxSize()
     ) {
         Column(
-            modifier = Modifier.fillMaxSize().padding(16.dp)
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(16.dp)
         ) {
             GreetTextView(value = "Hey there,")
+            CreateAccount(value = "Create an Account")
         }
     }
 }
 
-@Composable
-fun GreetTextView(value: String) {
-    Text(
-        modifier = Modifier.fillMaxWidth(),
-        text = value,
-        style = TextStyle(
-            fontSize = 24.sp,
-            fontWeight = FontWeight.Normal
-        ),
-        textAlign = TextAlign.Center
-    )
-}
 
 @Preview(showSystemUi = true, showBackground = true)
 @Composable
