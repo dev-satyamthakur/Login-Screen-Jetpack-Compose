@@ -5,6 +5,7 @@ import androidx.compose.ui.graphics.Color
 val Primary = Color(0xFF222831)
 val Seconday = Color(0xFF393E46)
 val Accent = Color(0xFF0092CA)
+val BgColor = Color(0xFFEEEEEE)
 
 val Purple80 = Color(0xFFD0BCFF)
 val PurpleGrey80 = Color(0xFFCCC2DC)
