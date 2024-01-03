@@ -29,7 +29,7 @@ fun SignUpScreen() {
                 .fillMaxSize()
                 .padding(16.dp)
         ) {
-            GreetTextView(value = "Hey there,")
+            NormalTextView(value = "Hey there,")
             CreateAccount(value = "Create an Account")
 
             Spacer(modifier = Modifier.height(32.dp))
@@ -38,6 +38,8 @@ fun SignUpScreen() {
             MyTextFieldComponent(label = "Last name", Icons.Outlined.Person)
             MyTextFieldComponent(label = "Email", Icons.Outlined.Email)
             PasswordTextFieldComponent(label = "Password", Icons.Outlined.Lock)
+            
+            CheckboxComponent(value = "By continuing you accept our Privacy Policy and Terms of Use")
         }
     }
 }
