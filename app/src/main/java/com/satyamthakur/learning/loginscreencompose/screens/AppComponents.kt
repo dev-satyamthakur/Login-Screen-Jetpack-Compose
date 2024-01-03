@@ -49,6 +49,31 @@ import com.satyamthakur.learning.loginscreencompose.ui.theme.Primary
 import com.satyamthakur.learning.loginscreencompose.ui.theme.Purple80
 
 @Composable
+fun AlreadyUserLoginComponent() {
+    val initialText = "Already a User? "
+    val loginText = "Login"
+
+    val annotatedString = buildAnnotatedString {
+        append(initialText)
+        withStyle(style = SpanStyle(color = Accent)) {
+            pushStringAnnotation(tag = loginText, annotation = loginText)
+            append(loginText)
+        }
+    }
+
+    ClickableText(
+        modifier = Modifier.fillMaxWidth(),
+        text = annotatedString,
+        style = TextStyle(fontSize = 18.sp, textAlign = TextAlign.Center),
+        onClick = { offset ->
+        annotatedString.getStringAnnotations(offset, offset)
+            .firstOrNull()?.also { span ->
+                Log.d("ClickableTextTag", "{$span}")
+            }
+    })
+}
+
+@Composable
 fun DividerTextComponent() {
     Row(
         modifier = Modifier

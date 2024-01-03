@@ -49,6 +49,8 @@ fun SignUpScreen() {
             Spacer(modifier = Modifier.height(20.dp))
 
             DividerTextComponent()
+
+            AlreadyUserLoginComponent()
         }
     }
 }
