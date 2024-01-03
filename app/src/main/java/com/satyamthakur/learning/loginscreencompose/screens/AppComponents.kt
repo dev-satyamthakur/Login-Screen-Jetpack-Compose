@@ -1,15 +1,24 @@
 package com.satyamthakur.learning.loginscreencompose.screens
 
 import android.util.Log
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.ClickableText
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material.icons.filled.VisibilityOff
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Checkbox
+import androidx.compose.material3.Divider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedTextField
@@ -22,6 +31,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextStyle
@@ -35,6 +46,66 @@ import androidx.compose.ui.unit.sp
 import com.satyamthakur.learning.loginscreencompose.ui.theme.Accent
 import com.satyamthakur.learning.loginscreencompose.ui.theme.BgColor
 import com.satyamthakur.learning.loginscreencompose.ui.theme.Primary
+import com.satyamthakur.learning.loginscreencompose.ui.theme.Purple80
+
+@Composable
+fun DividerTextComponent() {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .heightIn(60.dp),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Divider(
+            modifier = Modifier
+                .fillMaxWidth()
+                .weight(1f),
+            color = Color.Gray,
+            thickness = 1.dp
+        )
+
+        Text(
+            modifier = Modifier.padding(8.dp), text = "or"
+        )
+
+        Divider(
+            modifier = Modifier
+                .fillMaxWidth()
+                .weight(1f),
+            color = Color.Gray,
+            thickness = 1.dp
+        )
+    }
+}
+
+@Composable
+fun ButtonComponent(value: String) {
+    Button(
+        onClick = { /*TODO*/ },
+        modifier = Modifier
+            .fillMaxWidth()
+            .heightIn(48.dp),
+        contentPadding = PaddingValues(),
+        colors = ButtonDefaults.buttonColors(Color.Transparent)
+    ) {
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .heightIn(48.dp)
+                .background(
+                    brush = Brush.horizontalGradient(listOf(Accent, Color.Blue)),
+                    shape = RoundedCornerShape(50.dp)
+                ),
+            contentAlignment = Alignment.Center
+        ) {
+            Text(
+                text = value,
+                fontSize = 18.sp,
+                fontWeight = FontWeight.Bold
+            )
+        }
+    }
+}
 
 @Composable
 fun CheckboxComponent(value: String) {
@@ -71,7 +142,7 @@ fun ClickableTextComponent(value: String) {
             append(termsOfUseText)
         }
     }
-    
+
     ClickableText(text = annotatedString, onClick = { offset ->
         annotatedString.getStringAnnotations(offset, offset)
             .firstOrNull()?.also { span ->
@@ -129,8 +200,8 @@ fun PasswordTextFieldComponent(label: String, iconValue: ImageVector) {
             // Please provide localized description for accessibility services
             val description = if (passwordVisible) "Hide password" else "Show password"
 
-            IconButton(onClick = {passwordVisible = !passwordVisible}){
-                Icon(imageVector  = image, description)
+            IconButton(onClick = { passwordVisible = !passwordVisible }) {
+                Icon(imageVector = image, description)
             }
         }
     )

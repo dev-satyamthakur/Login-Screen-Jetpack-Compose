@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -40,6 +41,14 @@ fun SignUpScreen() {
             PasswordTextFieldComponent(label = "Password", Icons.Outlined.Lock)
             
             CheckboxComponent(value = "By continuing you accept our Privacy Policy and Terms of Use")
+
+            Spacer(modifier = Modifier.height(80.dp))
+            
+            ButtonComponent(value = "Register")
+
+            Spacer(modifier = Modifier.height(20.dp))
+
+            DividerTextComponent()
         }
     }
 }
